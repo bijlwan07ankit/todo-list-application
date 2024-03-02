@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     renderTasks();
-    
     document.getElementById("addTaskBtn").addEventListener("click", addTask);
   });
   
@@ -38,8 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskText = document.createElement("div");
     taskText.textContent = task.text;
     taskText.classList.add("task-text");
+    if (task.completed) {
+      taskText.classList.add("completed"); // Add completed class if task is completed
+    }
     taskText.addEventListener("click", () => {
-      toggleTaskCompletion(task.id);
+      toggleTaskCompletion(task.id); // Toggle completion status on click
     });
     
     const deleteButton = document.createElement("button");
